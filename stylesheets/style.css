@@ -1,0 +1,88 @@
+.favorites li {
+    margin: 0 0 2em 0;
+    padding: 0;
+    list-style: none;
+    clear: both;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+
+.favorites .title {
+    padding: 0.5em 0 0.5em 0.5em;
+    margin: 0;
+    background-color: #eee;
+}
+
+.favorites .title a {
+    text-decoration: underline;
+    font-size: 1.1em;
+}
+
+.favorites .title .course {
+    color: #555;
+}
+
+.favorites .container {
+    background: url('../../../../assets/images/steel1.jpg');
+}
+
+.favorites .description {
+    margin: 0;
+    padding: 1em 0.5em;
+    border-left: 110px solid #dfe2e9;
+}
+
+.favorites .preview {
+    height: 200px;
+}
+
+
+.favorites .author {
+    float: left;
+    width: 100px;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    background-color: #dfe2e9;
+}
+
+.favorites .author img {
+    display: block;
+    margin: 0.5em auto;
+}
+
+.favorites .date {
+    color: #aaa;
+}
+
+
+
+
+.favorites .more {
+    display: none;
+}
+
+.favorites .preview .more {
+    display:block;
+    bottom:0;
+    color:green;
+    height:36px;
+    line-height:36px;
+    left:-110px;
+    right: 0;
+    position:absolute;
+/*    width:100%;*/
+    background: url("../images/gradient.png");
+    margin:0;
+    padding:0;
+}
+
+.favorites .preview .more:hover {
+    background: url("../images/gradient_hover.png");
+}
+
+.favorites li {
+    position: relative;
+}
+
