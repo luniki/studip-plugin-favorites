@@ -44,15 +44,23 @@ class FavoritesPlugin extends StudipPlugin implements StandardPlugin, SystemPlug
             return;
         }
 
+        $index_url = PluginEngine::getURL('favoritesplugin', array(), 'index');
+
         $top_nav = new Navigation('Favoriten');
-        $top_nav->setURL(PluginEngine::getURL('favoritesplugin', array(), 'index'));
+        $top_nav->setURL($index_url);
         $top_nav->setImage($this->getPluginURL().'/images/star.png');
+        $top_nav->addSubNavigation('favorites', new Navigation(_('Meine Favoriten'), $index_url));
+
         Navigation::addItem('/favorites', $top_nav);
 
+        if (Navigation::hasItem('/homepage')) {
+            Navigation::addItem('/homepage/favorites', $top_nav);
+        }
+
         if (Navigation::hasItem('/course/forum')) {
-            $navigation = new Navigation('Favoriten');
-            $navigation->setURL(PluginEngine::getURL('favoritesplugin', array(), 'show'));
-            Navigation::addItem('/course/forum/favorites', $navigation);
+            $course_nav = new Navigation('Favoriten');
+            $course_nav->setURL(PluginEngine::getURL('favoritesplugin', array(), 'show'));
+            Navigation::addItem('/course/forum/favorites', $course_nav);
         }
     }
 
@@ -60,7 +68,7 @@ class FavoritesPlugin extends StudipPlugin implements StandardPlugin, SystemPlug
         require_once 'lib/forum.inc.php';
 
         $GLOBALS['CURRENT_PAGE'] = 'Meine Favoriten';
-        Navigation::activateItem('/favorites');
+        Navigation::activateItem('/homepage/favorites');
 
         $template = $this->template_factory->open('favorites');
         $layout = $GLOBALS['template_factory']->open('layouts/base_without_infobox');
@@ -190,7 +198,7 @@ class FavoritesPlugin extends StudipPlugin implements StandardPlugin, SystemPlug
         } else if ($distance_in_minutes >= 525960 && $distance_in_minutes <= 1051919) {
             $string = _('ca. 1 Jahr');
         } else {
-            $string = _('Ã¼ber %years% Jahren');
+            $string = _('über %years% Jahren');
             $parameters['%years%'] = round($distance_in_minutes / 525960);
         }
 
