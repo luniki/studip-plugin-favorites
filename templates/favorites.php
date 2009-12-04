@@ -21,11 +21,11 @@ $infobox = array('picture' => 'browse.jpg', 'content' => $infobox_content);
 
 <ol class="favorites">
 <? foreach ($favorites as $value) :
-    $link = URLHelper::getLink('seminar_main.php', array(
+    $link = URLHelper::getLink('seminar_main.php#anker', array(
                                'auswahl' => $value['Seminar_id'],
                                'redirect_to' => 'forum.php',
                                'open' => $value['topic_id'],
-                                'view' => 'open'));
+                               'view' => 'tree'));
     ?>
     <li>
         <div class="favorite">
