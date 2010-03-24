@@ -135,13 +135,17 @@ class FavoritesPlugin extends StudipPlugin implements StandardPlugin, SystemPlug
 
     ############################################################################
     #
-    # hook of StandardPlugin
+    # hooks of StandardPlugin
     #
     ############################################################################
 
     function getIconNavigation($course_id, $last_visit) {
         return NULL;
     }
+
+    function getInfoTemplate($course_id) { 
+        return NULL;
+    } 
 
     ############################################################################
     #

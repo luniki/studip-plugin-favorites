@@ -1,4 +1,5 @@
 pluginname=Favorites
 pluginclassname=FavoritesPlugin
 origin=luniki
-version=0.1.0
+version=0.1.1
+studipMinVersion=1.11
