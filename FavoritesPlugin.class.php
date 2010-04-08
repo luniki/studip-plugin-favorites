@@ -53,8 +53,8 @@ class FavoritesPlugin extends StudipPlugin implements StandardPlugin, SystemPlug
 
         Navigation::addItem('/favorites', $top_nav);
 
-        if (Navigation::hasItem('/homepage')) {
-            Navigation::addItem('/homepage/favorites', $top_nav);
+        if (Navigation::hasItem('/profile')) {
+            Navigation::addItem('/profile/favorites', $top_nav);
         }
 
         if (Navigation::hasItem('/course/forum')) {
@@ -68,7 +68,7 @@ class FavoritesPlugin extends StudipPlugin implements StandardPlugin, SystemPlug
         require_once 'lib/forum.inc.php';
 
         $GLOBALS['CURRENT_PAGE'] = 'Meine Favoriten';
-        Navigation::activateItem('/homepage/favorites');
+        Navigation::activateItem('/profile/favorites');
 
         $template = $this->template_factory->open('favorites');
         $layout = $GLOBALS['template_factory']->open('layouts/base_without_infobox');
@@ -143,9 +143,9 @@ class FavoritesPlugin extends StudipPlugin implements StandardPlugin, SystemPlug
         return NULL;
     }
 
-    function getInfoTemplate($course_id) { 
+    function getInfoTemplate($course_id) {
         return NULL;
-    } 
+    }
 
     ############################################################################
     #
